@@ -26,15 +26,15 @@ void AMyCharacter::BeginPlay()
 
 void AMyCharacter::MovingForwardFunc(float axisValue)
 {
-	UE_LOG(LogTemp, Log, TEXT("Forward = %f"), axisValue)
+	UE_LOG(LogTemp, Log, TEXT("Forward = %f"), axisValue);
 
-		AddMovementInput(GetActorForwardVector(), axisValue);
+	AddMovementInput(GetActorForwardVector(), axisValue);
 }
 
 void AMyCharacter::MovingRightFunc(float axisValue)
 {
-	UE_LOG(LogTemp, Log, TEXT("Right = %f"), axisValue)
-		AddMovementInput(GetActorRightVector(), axisValue);
+	UE_LOG(LogTemp, Log, TEXT("Right = %f"), axisValue);
+	AddMovementInput(GetActorRightVector(), axisValue);
 }
 
 // Called every frame
