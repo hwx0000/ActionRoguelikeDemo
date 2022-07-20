@@ -21,7 +21,6 @@ AMyCharacter::AMyCharacter()
 void AMyCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 void AMyCharacter::MovingForwardFunc(float axisValue)
@@ -44,21 +43,16 @@ void AMyCharacter::Tick(float DeltaTime)
 
 }
 
-//void AMyCharacter::TMethodPtr< AMyCharacter >
-
-
-
 // Called to bind functionality to input
 void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
-	//GetActorForwardVector
-	//AddMovementInput
-	////
-	// PlayerInputComponent->BindAction();
-	
 	PlayerInputComponent->BindAxis<AMyCharacter>(FName("MovingForward"), this, &AMyCharacter::MovingForwardFunc);
 	PlayerInputComponent->BindAxis<AMyCharacter>(FName("MovingRight"), this, &AMyCharacter::MovingRightFunc);
+
+	// 这里直接绑定到继承来的APawn里的函数
+	PlayerInputComponent->BindAxis("Turn", this, &APawn::AddControllerYawInput);
+	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
 }
 
