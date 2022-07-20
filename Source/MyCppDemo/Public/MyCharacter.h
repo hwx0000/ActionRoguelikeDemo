@@ -24,6 +24,8 @@ protected:
 
 	void MovingForwardFunc(float axisValue);
 	
+	void MovingRightFunc(float axisValue);
+
 		UPROPERTY(EditAnywhere)
 		UCameraComponent* CameraComponent;
 

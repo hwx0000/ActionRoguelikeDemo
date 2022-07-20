@@ -26,8 +26,15 @@ void AMyCharacter::BeginPlay()
 
 void AMyCharacter::MovingForwardFunc(float axisValue)
 {
-	UE_LOG(LogTemp, Warning, TEXT("%f"), axisValue)
-	UE_LOG(LogTemp, Log, TEXT("Value = %f"), axisValue);
+	UE_LOG(LogTemp, Log, TEXT("Forward = %f"), axisValue)
+
+		AddMovementInput(GetActorForwardVector(), axisValue);
+}
+
+void AMyCharacter::MovingRightFunc(float axisValue)
+{
+	UE_LOG(LogTemp, Log, TEXT("Right = %f"), axisValue)
+		AddMovementInput(GetActorRightVector(), axisValue);
 }
 
 // Called every frame
@@ -52,5 +59,6 @@ void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	// PlayerInputComponent->BindAction();
 	
 	PlayerInputComponent->BindAxis<AMyCharacter>(FName("MovingForward"), this, &AMyCharacter::MovingForwardFunc);
+	PlayerInputComponent->BindAxis<AMyCharacter>(FName("MovingRight"), this, &AMyCharacter::MovingRightFunc);
 }
 
