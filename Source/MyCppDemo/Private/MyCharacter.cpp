@@ -54,5 +54,12 @@ void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	// 这里直接绑定到继承来的APawn里的函数
 	PlayerInputComponent->BindAxis("Turn", this, &APawn::AddControllerYawInput);
 	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
+
+	PlayerInputComponent->BindAction("Shoot",EInputEvent::IE_Pressed , this, &AMyCharacter::Shoot);
+}
+
+void AMyCharacter::Shoot()
+{
+	UE_LOG(LogTemp, Log, TEXT("Shoot"));
 }
 
