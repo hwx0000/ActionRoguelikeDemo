@@ -12,6 +12,7 @@ AMyCharacter::AMyCharacter()
 	SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>(TEXT("My Spring Arm Component"));
 	// 设置父子层级关系
 	SpringArmComponent->SetupAttachment(RootComponent);
+	SpringArmComponent->bUsePawnControlRotation = true;
 	
 	CameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("My Camera Component"));
 	CameraComponent->SetupAttachment(SpringArmComponent);
