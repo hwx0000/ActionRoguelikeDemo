@@ -10,7 +10,7 @@ AMyCharacter::AMyCharacter()
 	PrimaryActorTick.bCanEverTick = true;
 
 	SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>(TEXT("My Spring Arm Component"));
-	// 设置父子层级关系
+	// 璁剧疆鐖跺瓙灞傜骇鍏崇郴
 	SpringArmComponent->SetupAttachment(RootComponent);
 	SpringArmComponent->bUsePawnControlRotation = true;
 	
@@ -52,7 +52,7 @@ void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	PlayerInputComponent->BindAxis<AMyCharacter>(FName("MovingForward"), this, &AMyCharacter::MovingForwardFunc);
 	PlayerInputComponent->BindAxis<AMyCharacter>(FName("MovingRight"), this, &AMyCharacter::MovingRightFunc);
 
-	// 这里直接绑定到继承来的APawn里的函数
+	// 杩欓噷鐩存帴缁戝畾鍒扮户鎵挎潵鐨凙Pawn閲岀殑鍑芥暟
 	PlayerInputComponent->BindAxis("Turn", this, &APawn::AddControllerYawInput);
 	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
 
